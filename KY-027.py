@@ -1,47 +1,33 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
+# Needed modules will be imported and configured.
 import OPi.GPIO as GPIO
-from time import sleep          # this lets us have a time delay
-
-GPIO.setboard(GPIO.PCPCPLUS)    # Orange Pi PC board
+import time
+   
+GPIO.setboard(GPIO.PCPCPLUS)
 GPIO.setmode(GPIO.BOARD)
-  
-# The input pin of the Sensor will be declared. Additional to that the pullup resistor will be activated.
-GPIO_PIN = 16
-LED = 15
-V = 18
-GPIO.setup(GPIO_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
-GPIO.setup(V, GPIO.OUT, GPIO.HIGH)
-GPIO.setup(LED, GPIO.OUT)
-print ("Sensor-Test [press ctrl+c to end it]")
-  
+   
+# Declaration of the LED and sensor pins
+#LED_PIN = 15
+Sensor_PIN = 22
+GPIO.setup(Sensor_PIN, GPIO.IN)
+#GPIO.setup(LED_PIN, GPIO.OUT)
+   
+print ("Sensor-test [press ctrl+c to end the test]")
+   
 # This output function will be started at signal detection
-def outFunction(null):
-	print("Signal detected")
-	GPIO.output(LED, True)
-  
-# At the moment of detecting a Signal ( falling signal edge ) the output function will be activated.
-#GPIO.add_event_detect(GPIO_PIN, GPIO.FALLING, callback=outFunction, bouncetime=100) 
-GPIO.add_event_detect(GPIO_PIN, GPIO.FALLING, callback=outFunction, bouncetime=10) 
-  
+def ausgabeFunktion(null):
+        GPIO.output(LED_PIN, True)
+   
+# This output function will be started at signal detection 
+GPIO.add_event_detect(Sensor_PIN, GPIO.FALLING, callback=ausgabeFunktion, bouncetime=10) 
+   
+# main program loop 
 try:
         while True:
-			sleep(1)
-			GPIO.output(V, True)
-			if GPIO.input(GPIO_PIN)== True:
-				GPIO.output(LED,False)
-
-except KeyboardInterrupt:  
-    # here you put any code you want to run before the program   
-    # exits when you press CTRL+C  
-    print "An error or exception occurred!"
-  
-except:  
-    # this catches ALL other exceptions including errors.  
-    # You won't get any error messages for debugging  
-    # so only use it once your code is working  
-    print "Other error or exception occurred!"  
-  
-finally:  
-    GPIO.cleanup() # this ensures a clean exit
+            time.sleep(1)
+        # output will be reseted if the switch turn back to the default position.
+        if GPIO.input(Sensor_PIN):
+            GPIO.output(LED_PIN,False)
+   
+# Scavenging work after the program has ended
+except KeyboardInterrupt:
+        GPIO.cleanup()
