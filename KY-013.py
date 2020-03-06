@@ -1,24 +1,53 @@
 import time
+from time import sleep
+
 import serial
-import numpy as np
+from serial import Serial
+
+import math, signal, sys, os
+import OPi.GPIO as GPIO
+GPIO.setboard(GPIO.PCPCPLUS)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
  
-N = 10
-data = np.zeros((N, 2))
-# Abrimos la conexion con Arduino
-arduino = serial.Serial('/dev/ttyS3', baudrate=9600, timeout=1.0)
-with arduino:
-    ii = 0
-    while ii < N:
-        try:
-            line = arduino.readline()
-            if not line:
-                # HACK: Descartamos líneas vacías porque fromstring produce
-                # resultados erróneos, ver
-                # https://github.com/numpy/numpy/issues/1714
-                continue
-            data[ii] = np.fromstring(line.decode('ascii', errors='replace'), sep=' ')
-            ii += 1
-        except KeyboardInterrupt:
-            print("Exiting")
-            break
-        print(data)
+# initialise variables
+delayTime = 0.5 # in seconds
+
+ser = Serial('/dev/ttyS3', 9600)
+
+ser.flushInput()
+ser.flushOutput()
+
+port = 'J4'
+  
+#############################################################################################################
+
+def calcTemp(voltage):
+    temperature = math.log((10000/voltage)*(3300-voltage))
+    temperature = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * temperature * temperature)) * temperature);
+    #temperature = temperature - 273.15;
+    return temperature
+
+# ########
+# main program loop
+# ########
+# The program reads the current value of the input pin
+# and shows it at the terminal
+  
+try:
+    while True:
+        #val = ser.readline()
+        val = ser.readline().split(port, 2)
+        
+        if '' in val:
+            #read voltage-value and calculate temperature
+            temp = round(calcTemp(float(val[1])), 2)
+            # print to console
+            print ("Temperatura:", temp, "C")
+            print ("---------------------------------------")
+
+            sleep(delayTime)
+             
+  
+except KeyboardInterrupt:
+        GPIO.cleanup()
