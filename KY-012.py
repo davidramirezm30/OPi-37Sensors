@@ -1,8 +1,9 @@
 #Needed modules will be imported and configured.
-import OPi.GPIO as GPIO
+import orangepi.pc
+from OPi import GPIO
+
 from time import sleep          # this lets us have a time delay
 
-GPIO.setboard(GPIO.PCPCPLUS)    # Orange Pi PC board
 GPIO.setmode(GPIO.BOARD)
  
 # Output pin declaration for the Buzzer.

@@ -1,9 +1,10 @@
-import OPi.GPIO as GPIO
+import orangepi.pc
+from OPi import GPIO
+
 import glob
 import time
 from time import sleep
 
-GPIO.setboard(GPIO.PCPCPLUS)    # Orange Pi PC board
 GPIO.setmode(GPIO.BOARD)
  
 # here you can modify the break between the measurements

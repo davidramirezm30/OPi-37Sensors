@@ -1,8 +1,9 @@
 # Needed modules will be imported and configured
-import OPi.GPIO as GPIO
+import orangepi.pc
+from OPi import GPIO
+
 import time
 
-GPIO.setboard(GPIO.PCPCPLUS)    # Orange Pi PC board
 GPIO.setmode(GPIO.BOARD)
     
 # Declaration of the input pin which is connected with the sensor. Additional to that, a pullup resistor will be activated.

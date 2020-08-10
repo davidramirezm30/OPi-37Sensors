@@ -5,7 +5,9 @@ import serial
 from serial import Serial
 
 import math, signal, sys, os
-import OPi.GPIO as GPIO
+import orangepi.pc
+from OPi import GPIO
+
 GPIO.setboard(GPIO.PCPCPLUS)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
