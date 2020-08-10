@@ -28,7 +28,7 @@ delayTime = 0.01
 PIN_CLK_LETZTER = GPIO.input(PIN_CLK)
  
 # This output function will start at signal detection
-def ausgabeFunktion(null):
+def outFunction(null):
     global Counter
  
     PIN_CLK_AKTUELL = GPIO.input(PIN_CLK)
@@ -37,34 +37,34 @@ def ausgabeFunktion(null):
  
         if GPIO.input(PIN_DT) != PIN_CLK_AKTUELL:
             Counter += 1
-            Richtung = True;
+            Richtung = True
         else:
             Richtung = False
             Counter = Counter - 1
  
-        print "Rotation detected: "
+        print ("Rotation detected: ")
  
         if Richtung:
-            print "Rotational direction: Clockwise"
+            print ("Rotational direction: Clockwise")
         else:
-            print "Rotational direction: Counterclockwise"
+            print ("Rotational direction: Counterclockwise")
  
-        print "Current position: ", Counter
+        print ("Current position: ", Counter)
         print "------------------------------"
  
 def CounterReset(null):
     global Counter
  
-    print "Position reset!"
-    print "------------------------------"
+    print ("Position reset!")
+    print ("------------------------------")
     Counter = 0
  
 # To include a debounce directly, the output function will be initialised from the GPIO Python Module via callback-option
-GPIO.add_event_detect(PIN_CLK, GPIO.BOTH, callback=ausgabeFunktion, bouncetime=50)
+GPIO.add_event_detect(PIN_CLK, GPIO.BOTH, callback=outFunction, bouncetime=50)
 GPIO.add_event_detect(BUTTON_PIN, GPIO.FALLING, callback=CounterReset, bouncetime=50)
  
  
-print "Sensor-Test [press ctrl-c to end]"
+print ("Sensor-Test [press ctrl-c to end]")
  
 # Main program loop
 try:

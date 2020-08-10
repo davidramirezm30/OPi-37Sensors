@@ -16,7 +16,7 @@ RELAIS_PIN = 22
 GPIO.setup(RELAIS_PIN, GPIO.OUT)
 GPIO.output(RELAIS_PIN, False)
  
-print "Sensor-test [press ctrl+c to end]"
+print ("Sensor-test [press ctrl+c to end]")
  
  
 # Main program loop

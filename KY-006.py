@@ -15,8 +15,8 @@ pwm.start(50)
 # Until then, the buzzer will be used with the before inputted frequency (default 500Hz).
 try:
     while(True):
-        print "----------------------------------------"
-        print "Current frequency: %d" % Frequenz
+        print ("----------------------------------------")
+        print ("Current frequency: %d" % Frequenz)
         Frequenz = input("Please input a new frequency (50-5000):")
         pwm.ChangeFrequency(Frequenz)
          

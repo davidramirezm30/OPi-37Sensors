@@ -12,14 +12,15 @@ GPIO.setmode(orangepi.pc.BOARD)
 GPIO_PIN = 29
 GPIO.setup(GPIO_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
   
-print "Sensor-Test [press ctrl+c to end it]"
+print ("Sensor-Test [press ctrl+c to end it]")
+
   
 # This output function will be started at signal detection
 def outFunction(null):
         print("Signal detected")
   
 # At the moment of detecting a Signal ( falling signal edge ) the output function will be activated.
-GPIO.add_event_detect(GPIO_PIN, GPIO.FALLING, callback=outFunction, bouncetime=100) 
+GPIO.add_event_detect(GPIO_PIN, GPIO.FALLING, callback=outFunction) 
   
 try:
         while True:

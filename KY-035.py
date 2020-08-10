@@ -8,7 +8,6 @@ import math, signal, sys, os
 import orangepi.pc
 from OPi import GPIO
 
-GPIO.setboard(GPIO.PCPCPLUS)
 GPIO.setmode(orangepi.pc.BOARD)
 GPIO.setwarnings(False)
  

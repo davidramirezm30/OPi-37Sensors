@@ -11,7 +11,7 @@ GPIO.setmode(orangepi.pc.BOARD)
 LED_PIN = 16
 GPIO.setup(LED_PIN, GPIO.OUT, initial= GPIO.LOW)
   
-print "LED-Test [press ctrl+c to end]"
+print ("LED-Test [press ctrl+c to end]")
  
 # main program loop
 try:

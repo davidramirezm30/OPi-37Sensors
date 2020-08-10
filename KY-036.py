@@ -8,7 +8,6 @@ import math, signal, sys, os
 import orangepi.pc
 from OPi import GPIO
 
-GPIO.setboard(GPIO.PCPCPLUS)
 GPIO.setmode(orangepi.pc.BOARD)
 GPIO.setwarnings(False)
  
@@ -38,10 +37,11 @@ try:
         if 'J5' in val:
             # Output at the terminal
             if GPIO.input(Digital_PIN) == False:
-                    print "Analog voltage value:", val,"mV, ","extreme value: not reached"
+                    print ("Analog voltage value:", val,"mV, ","extreme value: not reached")
+
             else:
-                    print "Analog voltage value:", val, "mV, ", "extreme value: reached"
-            print "---------------------------------------"
+                    print ("Analog voltage value:", val, "mV, ", "extreme value: reached")
+            print ("---------------------------------------")
 
             sleep(delayTime)
   

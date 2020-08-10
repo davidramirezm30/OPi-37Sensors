@@ -15,16 +15,16 @@ GPIO.setup(GPIO_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 # Break between the results will be defined here (in seconds)
 delayTime = 0.5
  
-print "Sensor-Test [press ctrl+c to end]"
+print ("Sensor-test [press ctrl+c to end]")
  
 # main program loop
 try:
         while True:
             if GPIO.input(GPIO_PIN) == True:
-                print "LineTracker is on the line"
+                print ("LineTracker is on the line")
             else:
-                print "Linetracker is not on the line"
-            print "---------------------------------------"
+                print ("Linetracker is not on the line")
+            print ("---------------------------------------")
  
             # Reset + Delay
             time.sleep(delayTime)

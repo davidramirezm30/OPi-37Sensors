@@ -15,16 +15,16 @@ GPIO.setup(GPIO_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 # Break between the results will be defined here (in seconds)
 delayTime = 0.5
  
-print "Sensor-Test [press ctrl+c to end]"
+print ("Sensor-test [press ctrl+c to end]")
  
 # main program loop
 try:
         while True:
             if GPIO.input(GPIO_PIN) == True:
-                print "No obstacle"
+                print ("No obstacle")
             else:
-                print "Obstacle detected"
-            print "---------------------------------------"
+                print ("Obstacle detected")
+            print ("---------------------------------------")
  
             # Reset + Delay
             time.sleep(delayTime)

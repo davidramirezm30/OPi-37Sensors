@@ -8,7 +8,6 @@ import math, signal, sys, os
 import orangepi.pc
 from OPi import GPIO
 
-GPIO.setboard(GPIO.PCPCPLUS)
 GPIO.setmode(orangepi.pc.BOARD)
 GPIO.setwarnings(False)
  
@@ -43,15 +42,15 @@ try:
                 print ''
             if '' in y:
                 # Output at the terminal
-                print "X-axis (mV):", VRx,"Y-axis (mV):", VRy,"Button: not pushed"
+                print ("X-axis (mV):", VRx,"Y-axis (mV):", VRy,"Button: not pushed")
         else:
             if '' in x:
                 VRx = x[1]
             if '' in y:
                 VRy = y[1]
-                print "X-axis (mV):", VRx,"Y-axis (mV):", VRy,"Button: pushed"
+                print ("X-axis (mV):", VRx,"Y-axis (mV):", VRy,"Button: pushed")
             
-        print "---------------------------------------"
+        print ("---------------------------------------")
 
         # Reset + Delay
         button_pressed = False

@@ -4,7 +4,6 @@ from OPi import GPIO
 
 import time
    
-GPIO.setboard(GPIO.PCPCPLUS)
 GPIO.setmode(orangepi.pc.BOARD)
    
 # Declaration of the LED and sensor pins
@@ -16,11 +15,11 @@ GPIO.setup(Sensor_PIN, GPIO.IN)
 print ("Sensor-test [press ctrl+c to end the test]")
    
 # This output function will be started at signal detection
-def ausgabeFunktion(null):
+def outFunction(null):
         GPIO.output(LED_PIN, True)
    
 # This output function will be started at signal detection 
-GPIO.add_event_detect(Sensor_PIN, GPIO.FALLING, callback=ausgabeFunktion, bouncetime=10) 
+GPIO.add_event_detect(Sensor_PIN, GPIO.FALLING, callback=outFunction, bouncetime=10) 
    
 # main program loop 
 try:
