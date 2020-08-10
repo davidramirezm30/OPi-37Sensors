@@ -5,7 +5,7 @@ from OPi import GPIO
 import time
    
 GPIO.setboard(GPIO.PCPCPLUS)
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(orangepi.pc.BOARD)
    
 # Declaration of the LED and sensor pins
 #LED_PIN = 15

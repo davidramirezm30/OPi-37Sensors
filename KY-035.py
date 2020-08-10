@@ -9,7 +9,7 @@ import orangepi.pc
 from OPi import GPIO
 
 GPIO.setboard(GPIO.PCPCPLUS)
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(orangepi.pc.BOARD)
 GPIO.setwarnings(False)
  
 # initialise variables

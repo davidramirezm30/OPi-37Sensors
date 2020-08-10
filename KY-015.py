@@ -5,7 +5,7 @@ import glob
 import time
 from time import sleep
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(orangepi.pc.BOARD)
  
 # here you can modify the break between the measurements
 sleeptime = 1

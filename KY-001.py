@@ -7,7 +7,7 @@ import glob
 import time
 from time import sleep
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(orangepi.pc.BOARD)
  
 # here you can modify the break between the measurements
 sleeptime = 1
@@ -17,7 +17,7 @@ GPIO_PIN = 7
 GPIO.setup(GPIO_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
  
 # After the enabling of the pullup-resistor you have to wait till the communication with the DS18B20 sensor has started
-print 'wait for initialisation...'
+print ('wait for initialisation...')
  
 base_dir = '/sys/bus/w1/devices/'
 while True:
@@ -60,20 +60,20 @@ def TemperaturAuswertung():
 # The break time can be configured by the variable "sleeptime"
 try:
     while True:
-        print '---------------------------------------'
-        print "Temperature:", TemperaturAuswertung(), "°C"
+        print ("---------------------------------------")
+        print ("Temperature:", TemperaturAuswertung(), "°C")
         time.sleep(sleeptime)
 # Scavenging work after the end of the program
 except KeyboardInterrupt:  
     # here you put any code you want to run before the program   
     # exits when you press CTRL+C  
-    print "An error or exception occurred!"
+    print ("An error or exception occurred!")
   
 except:  
     # this catches ALL other exceptions including errors.  
     # You won't get any error messages for debugging  
     # so only use it once your code is working  
-    print "Other error or exception occurred!"  
+    print ("Other error or exception occurred!")
   
 finally:  
     GPIO.cleanup() # this ensures a clean exit 

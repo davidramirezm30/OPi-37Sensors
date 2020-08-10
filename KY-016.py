@@ -6,7 +6,7 @@ from OPi import GPIO
 
 from time import sleep          # this lets us have a time delay
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(orangepi.pc.BOARD)
 
 # The output pins will be declared, which are connected with the LEDs. 
 LED_Red = 36
