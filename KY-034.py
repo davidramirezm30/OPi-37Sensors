@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import orangepi.pc
-from OPi import GPIO
+import OPi.GPIO as GPIO
 
 import time          # this lets us have a time delay
 
-GPIO.setmode(orangepi.pc.BOARD)
+GPIO.setboard(GPIO.PCPCPLUS)
+GPIO.setmode(GPIO.BOARD)
 
 LED_PIN = 16
 GPIO.setup(LED_PIN, GPIO.OUT, initial= GPIO.LOW)

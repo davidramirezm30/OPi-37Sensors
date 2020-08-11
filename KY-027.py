@@ -1,10 +1,10 @@
 # Needed modules will be imported and configured.
-import orangepi.pc
-from OPi import GPIO
+import OPi.GPIO as GPIO
 
 import time
    
-GPIO.setmode(orangepi.pc.BOARD)
+GPIO.setboard(GPIO.PCPCPLUS)
+GPIO.setmode(GPIO.BOARD)
    
 # Declaration of the LED and sensor pins
 #LED_PIN = 15

@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import orangepi.pc
-from OPi import GPIO
+import OPi.GPIO as GPIO
 
 import time          # this lets us have a time delay
 
-GPIO.setmode(orangepi.pc.BOARD)
+GPIO.setboard(GPIO.PCPCPLUS)
+GPIO.setmode(GPIO.BOARD)
 
 # Declaration and initialisation of the input pins which are connected with the sensor.
 PIN_CLK = 13

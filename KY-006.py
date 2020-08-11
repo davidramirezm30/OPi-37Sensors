@@ -1,8 +1,8 @@
 #Needed modules will be imported and configured.
-import orangepi.pc
-from OPi import GPIO
+import OPi.GPIO as GPIO
 
-GPIO.setmode(orangepi.pc.BOARD)
+GPIO.setboard(GPIO.PCPCPLUS)
+GPIO.setmode(GPIO.BOARD)
  
 #The output pin, which is connected with the buzzer, will be declared here.
 GPIO_PIN = 7
