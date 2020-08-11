@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import orangepi.pc
-from OPi import GPIO
+import OPi.GPIO as GPIO
 import glob
 import time
 from time import sleep
 
-GPIO.setmode(orangepi.pc.BOARD)
+GPIO.setboard(GPIO.PCPCPLUS)
+GPIO.setmode(GPIO.BOARD)
  
 # here you can modify the break between the measurements
 sleeptime = 1

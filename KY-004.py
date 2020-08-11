@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import orangepi.pc
-from OPi import GPIO
+import OPi.GPIO as GPIO
 
 from time import sleep          # this lets us have a time delay
 
-GPIO.setmode(orangepi.pc.BOARD)
+GPIO.setboard(GPIO.PCPCPLUS)
+GPIO.setmode(GPIO.BOARD)
   
 # The input pin of the Sensor will be declared. Additional to that the pullup resistor will be activated.
 GPIO_PIN = 22
